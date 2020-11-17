@@ -160,7 +160,7 @@ li a{
     border-left: solid #e0e4ed 1px;
     height: 60px;
     background-color: #f2f4f8;
-    display: flex;
+    position: static;
 }
 
 #search{
@@ -178,12 +178,14 @@ li a{
 
 .quest{
     padding: 8px 10px 8px 35px;
+    position: absolute;
 }
 
 .addItem{
     font: 12px Georgia;
     color: #99a1b3;
     padding: 0 8px 8px 32px;
+    float: right;
 }
 
 .addItem i {
