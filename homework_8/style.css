@@ -1,6 +1,11 @@
 body{
-    background-color:#f2f4f8;
+    background-color: #f2f4f8;
     margin: 0;
+}
+
+section {
+    display: block;
+    background-color: #f2f4f8;
 }
 .header{
     background-color:#2d313d;
@@ -97,10 +102,12 @@ a.nav-link:hover{
 /* left menu*/
 .menu{
     max-width: 170px;
-    padding-top: 40px;
+    padding-top: 20px;
     float: left;
 }
-
+ul{
+    display: inline;
+}
 li{
     list-style-type: none;
     padding: 2px 28px 9px 23px;
@@ -115,7 +122,6 @@ li a{
 
 .submenu{
     display: block;
-    margin-left: 28px;
     color: black;
     font: 18px Georgia;
     margin-top: 40px;
@@ -167,7 +173,7 @@ li a{
     border:solid #d6d9e1 1px;
     border-radius:5px;
     display:inline-block;
-    background: white url('img/search.png') no-repeat 260px 9px;
+    background: white url('img/search.png') no-repeat 250px 8px;
 }
 
 .quest{
@@ -177,17 +183,14 @@ li a{
 .addItem{
     font: 12px Georgia;
     color: #99a1b3;
-    padding: 23px 8px 8px 32px;
+    padding: 0 8px 8px 32px;
 }
 
-i.fa-sliders{
+.addItem i {
     color: #99a1b3;
     padding: 14px 8px 8px 2px;
 }
-.add{
-    float: right;
-    display: contents;
-}
+
 
 /*publication*/
 .allPublication{
@@ -469,8 +472,23 @@ i.fa-sliders{
     .post .title {
         font: bold 32px Arial;
     }
+    #search{
+        height: 55px;
+    }
     .button {
         padding: 0 0 140px 0;
+
+        margin-left: 300px;
+    }
+    .button a{
+        font: 30px Arial;
+    }
+    .button a:first-child {
+        margin-right: 35px;
+        padding: 10px 50px 40px;
+    }
+    .button a:last-child {
+        padding: 10px 40px 40px;
     }
     .footerMenu {
         margin-left: 300px;
@@ -483,6 +501,9 @@ i.fa-sliders{
     }
     .footerEnd span {
         font: 20px Arial;
+    }
+    .footerEnd img {
+        width: 40px;
     }
 
 }
