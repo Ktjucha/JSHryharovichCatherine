@@ -44,7 +44,7 @@ var barsik = new Cat('Барсик');
 
 console.log(barsik.name);
 
-console.log(barsik.dailyNorm());
+console.log(barsik.dailyNorm(300));
 console.log(barsik.feed());
 
 console.log(barsik.dailyNorm(600));
