@@ -36,10 +36,7 @@ function Cat(name) {
       parentFeed(); 
 	  console.log('Кот доволен ^_^');
       return this;
-    }
-	
-
-   
+    } 
 }
 
 var barsik = new Cat('Барсик');
