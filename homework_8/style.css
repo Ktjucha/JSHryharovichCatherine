@@ -331,6 +331,10 @@ li a{
     text-decoration: none;
     margin: 10px;
 }
+
+.footer{
+
+}
 .footerMenu a:hover{
     text-decoration: none;
     color: #99a1b3;

@@ -55,3 +55,24 @@ function divideArr(arr, n){
     }
 }
 divideArr([1, 2, 3, 4, 5, 6, 7, 8], 3);
+
+
+//Задание 5 (2 вариант) 
+function divideArr(arr, n){
+
+var result = arr.reduce(function(arr, x) {
+  arr[arr.length-1].push(x)
+  if (x%n == 0) arr.push([]);
+  return arr;
+}, [[]]);	
+console.log(result);
+}
+divideArr([1, 2, 3, 4, 5, 6, 7, 8], 3);
+
+
+
+
+
+
+
+
