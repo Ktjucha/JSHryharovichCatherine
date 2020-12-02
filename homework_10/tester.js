@@ -27,7 +27,7 @@ var initialObj = {
         object: {
             string2: 'Petrov',
             object2: {
-                array2: [{}, {}]
+                array2: [{string2: 'Petrov'}, {}]
             },
             object3: {}
         },
@@ -36,41 +36,43 @@ var initialObj = {
         }
     };
 
-function objectTester(a, b) {
+function countProps(obj) {
+    var count = 0;
 
+    for (var k in obj) {
 
-    if (a === b) return true;
+        if (obj.hasOwnProperty(k)) {
+            count++;
+        }
+    }
+    return count;
+}
 
+function objectTest(Obj1, Obj2) {
 
-    if (typeof a != typeof b) return false;
+    if (typeof(Obj1) !== typeof(Obj2)) {
+        return false;
+    }
 
+    if (Obj1 instanceof Object && Obj2 instanceof Object) {
 
-    if (typeof a == 'number' && isNaN(a) && isNaN(b)) return true;
+        if (countProps(Obj1) !== countProps(Obj2)) {
+            return false;
+        }
 
+        for (var k in Obj1) {
 
-
-    var aKeys = Object.keys(a);
-    var bKeys = Object.keys(b);
-
-    var every = function(arr, callback, thisArg) {
-        var i, length = arr.length;
-        for (i = 0; i < length; i = i + 1) {
-            if (!callback.call(thisArg, arr[i], i, arr)) {
+            if (!objectTest(Obj1[k], Obj2[k])) {
                 return false;
             }
         }
         return true;
-    };
+    } else {
+        return Obj1 === Obj2;
+    }
 
-    if (aKeys.length != bKeys.length) return false;
-
-
-    if (!aKeys.every(function(key){return b.hasOwnProperty(key)})) return false;
-
-    return aKeys.every(function(key){
-        return objectTester(a[key], b[key])
-    });
-
-    return false;
+    if(typeof(Obj1) === "function") {
+        return Obj1.toString() === Obj2.toString();
+    }
 }
-alert(objectTester(initialObj, clonedObj));
+alert(objectTest(initialObj, clonedObj));
