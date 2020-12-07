@@ -1,59 +1,62 @@
 //Задание 1:
 function transformationName(arr){
-  var newArr = arr.map(function(item) {
-        return 'name:' + item;
+
+    var newArr = arr.map(function(item) {
+        var obj = {};
+        obj.name = item;
+        return obj;
     });
-  console.log(newArr);
+
+    console.log(newArr);
 }
 
-var initialObj1 = ['Виктория', 'Егор', 'Илья', 'Сергей'];
-
-transformationName(initialObj1);
-
+var initialArr = ['Виктория', 'Егор', 'Илья', 'Сергей'];
+transformationName(initialArr);
 
 
 //Задание 2:
-var initialObj2 = ['00', '13', '24'];
+var initialArr1 = ['00', '13', '24'];
 
 function currentTime(arr){
 
-    var newArr = arr.reduce(function(arr1, i) {
-        return arr1 = arr1 + ' : ' + i;
+    var newArr = arr.reduce(function(arr, i) {
+        return arr1 = arr + ' : ' + i;
     },'Текущее время');
 
     console.log(newArr);
 }
-currentTime(initialObj2);
+currentTime(initialArr1);
 
 
 //Задание 3:
-var initialObj3 = 'Каждый охотник желает знать, где сидит фазан';
+var initialStr3 = 'Каждый охотник желает знать, где сидит фазан';
 
 function vowelsSearch(str){
     var vowels = ['а', 'о', 'и', 'у', 'е', 'я', 'ю', 'э', 'ы', 'ё'],
         count = 0,
         arr = str.toLowerCase().split('');
 
-    var k = arr.reduce(function(arr1,image) {
+    var k = arr.reduce(function(arr,image) {
+        var summ = 0;
 
-        for(var i=0; i < 10; i++){
+        for(var i = 0; i < 10; i++){
 
             if(vowels[i] == image){
                 count++;
             }
+            summ += count;
         }
-        return count;
+        return summ;
     });
 
     console.log(count);
 
 }
-vowelsSearch(initialObj3);
-
+vowelsSearch(initialStr3);
 
 
 //Задание 4:
-var initialObj4 = 'Привет, студент! Студент... Как дела, студент?';
+var initialStr4 = 'Привет, студент! Студент... Как дела, студент?';
 
 function countSentencesLetters(str){
     var a = str.split(/[!?.]/);
@@ -66,13 +69,11 @@ function countSentencesLetters(str){
     }
 }
 
-countSentencesLetters(initialObj4);
-
+countSentencesLetters(initialStr4);
 
 
 //Задание 5:
-
-var initialObj5 = 'Ну привет, ну привет, на-на-на. Ну привет, ну привет,' +
+var initialStr5 = 'Ну привет, ну привет, на-на-на. Ну привет, ну привет,' +
     ' и я с ней! Ну привет, привет, на-на-на! Ну привет, ну привет, тебе'; // 8 - привет
 
 function maxRepetition(str){
@@ -103,6 +104,6 @@ function maxRepetition(str){
        '"  -  ' + Object.keys(obj)[Object.keys(obj).length-1]);
 }
 
-maxRepetition(initialObj5);
+maxRepetition(initialStr5);
 
 
