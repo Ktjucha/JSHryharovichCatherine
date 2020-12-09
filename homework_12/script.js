@@ -15,17 +15,17 @@ transformationName(initialArr);
 
 
 //Задание 2:
-var initialArr1 = ['00', '13', '24'];
+var initialObj2 = ['00', '13', '24'];
 
 function currentTime(arr){
 
     var newArr = arr.reduce(function(arr, i) {
-        return arr1 = arr + ' : ' + i;
+        return  arr = arr + ' : ' + i;
     },'Текущее время');
 
     console.log(newArr);
 }
-currentTime(initialArr1);
+currentTime(initialObj2);
 
 
 //Задание 3:
@@ -33,26 +33,21 @@ var initialStr3 = 'Каждый охотник желает знать, где �
 
 function vowelsSearch(str){
     var vowels = ['а', 'о', 'и', 'у', 'е', 'я', 'ю', 'э', 'ы', 'ё'],
-        count = 0,
+        count = 0, result = 0,
         arr = str.toLowerCase().split('');
 
-    var k = arr.reduce(function(arr,image) {
-        var summ = 0;
+    var k = arr.forEach(function(image) {
 
-        for(var i = 0; i < 10; i++){
+        for(var i=0; i < 10; i++){
 
-            if(vowels[i] == image){
+            if(vowels[i] == image) {
                 count++;
             }
-            summ += count;
         }
-        return summ;
     });
-
-    console.log(count);
-
+    return count;
 }
-vowelsSearch(initialStr3);
+console.log(vowelsSearch(initialStr3));
 
 
 //Задание 4:
