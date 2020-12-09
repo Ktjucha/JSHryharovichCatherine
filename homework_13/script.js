@@ -45,6 +45,13 @@ tableContainer[0].addEventListener("click", function(event) {
         input.remove();
     });
 
+    input.addEventListener("keydown", function(e) {
+        if (e.keyCode === 13) {
+            target.textContent = input.value;
+            input.remove();
+        }
+    });
+
 });
 
 
