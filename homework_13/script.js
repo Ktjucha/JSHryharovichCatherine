@@ -1,12 +1,12 @@
 var tableContainer = document.getElementsByTagName('tbody'),
     idContainer = document.getElementById('add');
 
-idContainer.addEventListener("click", function(event) {
+idContainer.addEventListener('click', function(event) {
     var tdOld = document.getElementsByTagName('tr'),
-        row = document.createElement("tr"),
-        td1 = document.createElement("td"),
-        td2 = document.createElement("td"),
-        td3 = document.createElement("td");
+        row = document.createElement('tr'),
+        td1 = document.createElement('td'),
+        td2 = document.createElement('td'),
+        td3 = document.createElement('td');
 
     tableContainer[0].insertBefore(row, tdOld[0]);
     row.appendChild(td1);
@@ -14,9 +14,7 @@ idContainer.addEventListener("click", function(event) {
     row.appendChild(td3);
 });
 
-
-
-tableContainer[0].addEventListener("click", function(event) {
+tableContainer[0].addEventListener('click', function(event) {
     var target = event.target;
 
     if (target.parentElement == idContainer){
@@ -40,12 +38,12 @@ tableContainer[0].addEventListener("click", function(event) {
 
     var input = document.getElementById('inputId');
 
-    input.addEventListener("focusout", function() {
+    input.addEventListener('focusout', function() {
         target.textContent = input.value;
         input.remove();
     });
 
-    input.addEventListener("keydown", function(e) {
+    input.addEventListener('keydown', function(e) {
         if (e.keyCode === 13) {
             target.textContent = input.value;
             input.remove();

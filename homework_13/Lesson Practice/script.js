@@ -19,12 +19,10 @@ buttClick[0].addEventListener('click', function() {
         }
 });
 
-var childrenSecond = secondPar.children;
+secondPar.onclick = myAlert;
 
-childrenSecond[0].onclick = myAlert;
-childrenSecond[1].onclick = myAlert;
-
-function myAlert(EO) {
+function myAlert(event) {
+    var target = event.target;
     event.preventDefault();
-    alert(this.href);
+    alert(target.href);
 }
