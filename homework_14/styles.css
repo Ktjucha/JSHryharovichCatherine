@@ -1,0 +1,23 @@
+table{
+    border-collapse: collapse;
+    border: 1px solid grey;
+    table-layout: fixed;
+    margin: 10px;
+}
+td {
+    border: 1px solid grey;
+    height: 50px;
+    width: 50px;
+}
+
+tr:nth-child(even) td:nth-child(even),
+tr:nth-child(odd) td:nth-child(odd)
+{
+    background-color: #000000;
+}
+
+tr.clicked:nth-child(even) td.clicked:nth-child(even),
+tr.clicked:nth-child(odd) td.clicked:nth-child(odd)
+{
+    background-color: #ffffff;
+}
