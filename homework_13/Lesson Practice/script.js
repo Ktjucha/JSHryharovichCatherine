@@ -28,14 +28,14 @@ function myAlert(event) {
     if(target == secondPar.children[0] || target == secondPar.children[1]) {
         event.preventDefault();
 
-        if(localStorage.getItem(target.href)){
-            alert(target.href);
+        if(localStorage.getItem(target.textContent)){
+            alert(localStorage.getItem(target.textContent).split('"')[3]);
         }else{
-            localStorage.setItem('path', target.href);
-            var targetSave = target.href;
+            var obj = {};
+            obj.path = target.href;
+            localStorage.setItem(target.textContent, JSON.stringify(obj));
+            alert('ссылка '+ target.href +' сохранена');
             target.href = "#";
-            alert('ссылка '+ targetSave +' сохранена');
         }
-
     }
 }
