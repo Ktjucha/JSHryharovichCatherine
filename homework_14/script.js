@@ -66,7 +66,7 @@ function inputValidation() {
 
         for(var i = 0; i < tdColor.length; i++){
 
-            if(window.getComputedStyle(tdColor[i] ,null).getPropertyValue('background-color') === 'rgb(0, 0, 0)'){
+            if(window.getComputedStyle(tdColor[i]).backgroundColor === 'rgb(0, 0, 0)'){
                 tdColor[i].style.background = '#ffffff';
             }else{
                 tdColor[i].style.background = '#000000';
