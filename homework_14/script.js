@@ -1,13 +1,13 @@
 var coordinats = document.getElementsByTagName('input'),
     button = document.getElementsByTagName('button');
 
-button[0].setAttribute("disabled", "true");
+button[0].setAttribute('disabled', 'true');
 
 function logKey(){
-    if (coordinats[0].value != '' && coordinats[1].value != '') {
-        button[0].removeAttribute("disabled");
+    if (coordinats[0].value != 0 && coordinats[1].value != 0) {
+        button[0].removeAttribute('disabled');
     } else {
-        button[0].setAttribute("disabled", "true");
+        button[0].setAttribute('disabled', 'true');
     }
 }
 
@@ -23,12 +23,14 @@ function inputValidation() {
     if (isNaN(inputX) || (inputX ^ 0) !== inputX || inputX < 1 || inputX > 10) {
         alert('Ошибка в поле X, введите целое число от 1 до 10');
         coordinats[0].value = '';
+        logKey();
         return;
     }
 
     if (isNaN(inputY) || (inputY ^ 0) !== inputY || inputY < 1 || inputY > 10) {
         alert('Ошибка в поле Y, введите целое число от 1 до 10');
         coordinats[1].value = '';
+        logKey();
         return;
         }
 
@@ -47,11 +49,12 @@ function inputValidation() {
         for (var j = 0; j < inputX; j++) {
             var tdContainer = document.createElement('td');
 
+            (i + j) % 2 == 0 && tdContainer.classList.add('black');
             trContainer.appendChild(tdContainer);
         }
     }
 
-    button[0].setAttribute("disabled", "true");
+    button[0].setAttribute('disabled', 'true');
     coordinats[0].value = '';
     coordinats[1].value = '';
     coordinats[0].addEventListener('keyup', logKey);
@@ -64,12 +67,12 @@ function inputValidation() {
     function clickTable() {
         var tdColor = document.getElementsByTagName('td');
 
-        for(var i = 0; i < tdColor.length; i++){
+        for(var i = 0; i < tdColor.length; i++) {
 
-            if(window.getComputedStyle(tdColor[i]).backgroundColor === 'rgb(0, 0, 0)'){
-                tdColor[i].style.background = '#ffffff';
-            }else{
-                tdColor[i].style.background = '#000000';
+            if(tdColor[i].classList.contains('black')){
+                tdColor[i].classList.remove('black');
+            }else {
+                tdColor[i].classList.add('black');
             }
         }
 

@@ -10,14 +10,7 @@ td {
     width: 50px;
 }
 
-tr:nth-child(even) td:nth-child(even),
-tr:nth-child(odd) td:nth-child(odd)
-{
-    background-color: #000000;
-}
 
-tr.clicked:nth-child(even) td.clicked:nth-child(even),
-tr.clicked:nth-child(odd) td.clicked:nth-child(odd)
-{
-    background-color: #ffffff;
+.black{
+   background-color: black;
 }
