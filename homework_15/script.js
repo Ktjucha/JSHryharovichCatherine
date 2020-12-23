@@ -3,7 +3,9 @@ var  button = document.getElementsByTagName('button');
 button[0].addEventListener('click', informationOutput);
 
 function displayTab(info){
+
     for(var i = 0; i < info.length; i++){
+
         var divInfo = document.createElement('div'),
             classContainer = document.getElementsByClassName('container');
 
@@ -29,10 +31,11 @@ function informationOutput(){
     var info = [];
 
     if(document.getElementsByTagName('li').length !== 0){
-        var s = document.getElementsByClassName('tabsmenu')[0],
-            m = document.getElementsByClassName('container')[0];
-            s.remove();
-            m.remove();
+
+        var tabRemove= document.getElementsByClassName('tabsmenu')[0],
+            containerRemove = document.getElementsByClassName('container')[0];
+            tabRemove.remove();
+            containerRemove.remove();
 
         var tabsMenu = document.createElement('ul'),
             infoClass = document.getElementsByClassName('info');
@@ -44,37 +47,31 @@ function informationOutput(){
             infoClass[0].appendChild(divContainer);
         }
 
-
     if(localStorage.getItem('usersData')){
          info = JSON.parse(localStorage.getItem('usersData'));
          displayTab(info);
     }else{
         var xhr = new XMLHttpRequest();
         xhr.open('GET', 'https://reqres.in/api/users?page=2', true);
+        //xhr.open('GET', 'https://reqres.in/xfdfh/users?page=2', true); //не рабочий вариант
         xhr.send();
 
         xhr.onload = function() {
 
-            var statusType = +String(this.status)[0];
-
-           // throw { name:'MyError', message:'Ошибка!' };
-
-            if (statusType === 2){
+            if (this.status === 200){
                 try {
                     info = JSON.parse(this.response).data;
-                    console.log(info);
                     displayTab(info);
+                    localStorage.setItem('usersData', JSON.stringify(info));
                 }
                 catch ( ex ) {
                     alert ( ex.name + '!' + ex.message );
-
                 }
+            }else{
+                alert ( 'Данные не получены' );
             }
-
-            localStorage.setItem('usersData', JSON.stringify(info));
         }
     }
-
 
     ;(function() {
 
