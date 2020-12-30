@@ -21,7 +21,7 @@ function displayTab(info){
         classTabsMenu[0].appendChild(tabInfo);
 
         if(i === 0) {
-            divInfo.style.display = 'block';
+            divInfo.classList.toggle('activeBlock');
             tabInfo.classList.add('active');
         }
     }
@@ -68,7 +68,7 @@ function informationOutput(){
                     alert ( ex.name + '!' + ex.message );
                 }
             }else{
-                alert ( 'Данные не получены' );
+                document.body.innerHTML = '<h3 style="text-align: center">Данные не получены  ' + this.status + '<h3>';
             }
         }
     }
@@ -103,11 +103,14 @@ function informationOutput(){
 
         function switchBlock(menu, currIndex) {
             var content	= menu.nextElementSibling,
-                blocks = content.querySelectorAll('.container > div');
+                blocks = content.querySelectorAll('.container > div'),
+                dell = document.querySelectorAll('.activeBlock')[0];
+                dell.classList.remove('activeBlock');
 
             [].forEach.call(blocks, function(block, index) {
                 block.removeAttribute('style');
-                if (index == currIndex) block.style.display = 'block';
+                if (index == currIndex)
+                    block.classList.toggle('activeBlock');
             });
         }
     })();

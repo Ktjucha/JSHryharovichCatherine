@@ -29,6 +29,7 @@ function vowelsSearch(str){
 console.log(vowelsSearch(initialStr3));
 console.log(vowelsSearch(initialStr30));
 
+//-----------------------------------------
 
 var initialStr = 'Каждый охотник желает знать, где сидит фазан',
     initialStr0 = 'Квврппнн';
