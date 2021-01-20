@@ -1,0 +1,38 @@
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+}
+
+.container > div{
+    width: 60px;
+    height: 30px;
+    background-color: darkgray;
+    border: 1px solid black;
+    margin: 10px;
+    text-align: center;
+    padding-top: 9px;
+}
+
+#btn{
+    width: 150px;
+    justify-content: center;
+}
+
+.tools{
+    display: none;
+}
+
+.active{
+    display: block;
+}
+
+.active > button {
+    margin: 5px;
+    width: 150px;
+}
+
