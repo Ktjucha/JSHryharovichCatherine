@@ -1,11 +1,10 @@
 //Задание 1:
-/^([A-Za-z]{3,10})_([A-Za-z]{3,10})-(\d{4})@([A-Za-z0-9](\-|\.)?){2,20}(\.com)$/.test('name_surname-1234@gmail.com');
+/^[a-z]{3,10}_[a-z]{3,10}-\d{4}?@[a-z\d]{1,10}[.-]?[a-z\d]{1,10}\.com$/i.test('name_surname-1234@gmail.com');
 
 //Задание 2:
 function phoneNumbersTest(number) {
-    return /^(\+?375|8-0|80)(-?)(25|29|33|44|17)(-?)[1-9]{1}[\d]{2}(-?)[\d]{2}(-?)[\d]{2}$/.test(number);
+    return /^(\+?375-?|8-?0)(25|29|33|44|17)-?\d{1}(\d{2}-?){2}\d{2}$/.test(number);
 }
-
 console.log(phoneNumbersTest('+375-25-777-77-77'));
 console.log(phoneNumbersTest('375299999999'));
 console.log(phoneNumbersTest('8-044-444-44-44'));
@@ -19,11 +18,7 @@ var initialStr3 = 'Каждый охотник желает знать, где �
 function vowelsSearch(str){
     var result = str.match( /[аоиуеяюэыё]/ig );
 
-    if(result == null){
-        return 'гласных не найдено';
-    }
-
-    return result.length;
+    return (result == null) ? 'гласных не найдено' : result.length;
 }
 
 console.log(vowelsSearch(initialStr3));
@@ -42,4 +37,3 @@ function vowelsSearch1(str){
 
 console.log(vowelsSearch1(initialStr));
 console.log(vowelsSearch1(initialStr0));
-
