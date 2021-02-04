@@ -33,18 +33,20 @@ function startStopRun() {
          }
         msec += 1;
         milliseconds.innerText = (msec >= 10) ? msec : ('0' + msec);
-        if (msec > 99) {
+        if (msec == 99) {
             sec++;
             seconds.innerText = (sec >= 10) ?  sec : ('0' + sec);
+            milliseconds.innerText = '00';
             msec = 0;
         }
-        if (sec > 59) {
+        if (sec == 60) {
             min++;
             minutes.innerText = (min >= 10) ? min : ('0' + min);
+            seconds.innerText = '00';
             sec = 0;
         }
 
-        if (min == 60){
+        if (min === 60){
                 document.getElementById('save').hidden = true;
                 btnStart.hidden = true;
             clearInterval(intervalID);
@@ -134,6 +136,5 @@ function rendering(){
         }
 
         startStopRun();
-        //localStorage.clear();
     }
 }
